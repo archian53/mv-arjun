@@ -28,6 +28,10 @@ object Pivot {
     df2.show()
     df.show()
 
+   val newCol=when(col("C").equalTo("A"), "X").when(col("C").equalTo("B"), "Y").otherwise("Z")
+    val df3 = df1.withColumn("C", newCol)
+
+   
     sc.stop()
 
     /*+----+----+------+----+
